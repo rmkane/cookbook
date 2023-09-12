@@ -7,8 +7,8 @@ jest.mock('../../../src/db/dal/review', () => ({
   update: jest.fn(),
 }))
 
-const mockDate = new Date('10 Oct 2021').toISOString()
-const dateSpy = jest.spyOn(global, 'Date').mockImplementation(() => mockDate)
+const mockDate = new Date()
+const dateSpy = jest.spyOn(global, 'Date').mockReturnValue(mockDate)
 
 describe('Review Service', () => {
   afterAll(() => {
