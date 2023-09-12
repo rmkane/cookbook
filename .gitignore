@@ -1,4 +1,10 @@
+.vscode/**
+!.vscode/extensions.json
+
+.yarn
+
 .env
 dist
 node_modules
 coverage
+

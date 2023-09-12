@@ -1,11 +1,11 @@
 import { Optional } from 'sequelize/types'
-import {CreateIngredientDTO} from './ingredient.dto'
+import { CreateIngredientDTO } from './ingredient.dto'
 
 export type CreateRecipeDTO = {
-  title: string;
-  slug?: string;
-  instruction?: string;
-  author?: string;
+  title: string
+  slug?: string
+  instruction?: string
+  author?: string
   meta?: RecipeMetadata
   ingredients?: CreateIngredientDTO[]
 }

@@ -5,11 +5,4 @@ import Review from './Review'
 import RecipeTag from './RecipeTag'
 import RecipeIngredient from './RecipeIngredient'
 
-export {
-  Tag,
-  Recipe,
-  Ingredient,
-  Review,
-  RecipeTag,
-  RecipeIngredient
-}
+export { Tag, Recipe, Ingredient, Review, RecipeTag, RecipeIngredient }

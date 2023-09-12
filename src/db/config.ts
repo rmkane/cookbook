@@ -1,13 +1,17 @@
-require('dotenv').config()
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+import dotenv from 'dotenv'
 import diff from 'microdiff'
 import { Dialect, Model, Sequelize } from 'sequelize'
-import { SequelizeHooks } from 'sequelize/types/lib/hooks'
+import { SequelizeHooks } from 'sequelize/types/hooks'
 
 import localCache from '../lib/local-cache'
 
+dotenv.config()
+
 const isTest = process.env.NODE_ENV === 'test'
 
-const dbName = isTest ? process.env.TEST_DB_NAME as string : process.env.DB_NAME as string
+const dbName = isTest ? (process.env.DB_TEST_NAME as string) : (process.env.DB_NAME as string)
 const dbUser = process.env.DB_USER as string
 const dbHost = process.env.DB_HOST
 const dbDriver = process.env.DB_DRIVER as Dialect
@@ -49,12 +53,11 @@ const hooks: Partial<SequelizeHooks<Model<any, any>, any, any>> = {
   },
 }
 
-
 const sequelizeConnection = new Sequelize(dbName, dbUser, dbPassword, {
   host: dbHost,
   dialect: dbDriver,
   logging: false,
-  define: {hooks}
+  define: { hooks },
 })
 
 export default sequelizeConnection
