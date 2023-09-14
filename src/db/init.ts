@@ -6,7 +6,7 @@ import { Recipe, RecipeTag, Tag, Review, Ingredient, RecipeIngredient } from './
 dotenv.config()
 
 const isDev = process.env.NODE_ENV === 'development'
-const isTest = process.env.NODE_ENV !== 'test'
+const isTest = process.env.NODE_ENV === 'test'
 
 const dbInit = () =>
   Promise.all([
