@@ -1,4 +1,4 @@
-import type {Config} from '@jest/types';
+import type { Config } from '@jest/types'
 
 // Sync object
 const config: Config.InitialOptions = {
@@ -6,6 +6,7 @@ const config: Config.InitialOptions = {
   transform: {
     '^.+\\.ts?$': 'ts-jest',
   },
+  testMatch: ['**/?(*.)+(spec|test).ts'],
   // setupFilesAfterEnv: ['./tests/bootstrap.ts']
-};
-export default config;
+}
+export default config

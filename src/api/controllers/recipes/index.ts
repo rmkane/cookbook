@@ -8,27 +8,27 @@ import localCache from '../../../lib/local-cache'
 const primaryCacheKey = 'recipes'
 
 export const create = async (payload: CreateRecipeDTO): Promise<Recipe> => {
-    return mapper.toRecipe(await service.create(payload))
+  return mapper.toRecipe(await service.create(payload))
 }
 
 export const update = async (id: number, payload: UpdateRecipeDTO): Promise<Recipe> => {
-    return mapper.toRecipe(await service.update(id, payload))
+  return mapper.toRecipe(await service.update(id, payload))
 }
 
 export const getById = async (id: number): Promise<Recipe> => {
-    return mapper.toRecipe(await service.getById(id))
+  return mapper.toRecipe(await service.getById(id))
 }
 
 export const deleteById = (id: number): Promise<boolean> => {
-    return service.deleteById(id)
+  return service.deleteById(id)
 }
 
 export const getAll = async (filters: GetAllRecipesFilters): Promise<Recipe[]> => {
-    const recipes = await service.getAll(filters).then((recipes) => recipes.map(mapper.toRecipe))
-    
-    if (recipes.length) {
-        localCache.set(primaryCacheKey, recipes)
-    }
+  const recipes = await service.getAll(filters).then((recipes) => recipes.map(mapper.toRecipe))
 
-    return recipes
+  if (recipes.length) {
+    localCache.set(primaryCacheKey, recipes)
+  }
+
+  return recipes
 }

@@ -6,5 +6,5 @@ export interface Ingredient {
   foodGroup?: string
   createdAt: Date
   updatedAt: Date
-  deletedAt?: Date 
+  deletedAt?: Date
 }
